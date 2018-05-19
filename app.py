@@ -38,8 +38,12 @@ def webhook():
 
 					response = None
 					
-					if response == None:
-						response = "I din't understand now"
+					if response == "Hi":
+						response = "Hi,what up?"
+					elif response == "Nice":
+						responce = "Me too"
+					else:
+						response = "I dont understand"
 					bot.send_text_message(sender_id, response)
 
 
