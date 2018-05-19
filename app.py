@@ -36,8 +36,10 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 
-					response = messaging_text
-
+					response = None
+					
+					if response == None:
+						response = "I din't understand now"
 					bot.send_text_message(sender_id, response)
 
 
