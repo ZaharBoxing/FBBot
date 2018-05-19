@@ -33,22 +33,18 @@ def webhook():
 				if messaging_event.get('message'):
 					if 'text' in messaging_event['message']:
 						messaging_text = messaging_event['message']['text']
+						response = get_message()
+					bot.send_text_message(sender_id, response)
 					else:
 						messaging_text = 'no text'
-
-					response = None
-					
-					if response == "Hi":
-						response = "Hi,what up?"
-					elif response == "Nice":
-						responce = "Me too"
-					else:
-						response = "I dont understand"
+						response = "I didnt understand"
 					bot.send_text_message(sender_id, response)
 
 
 	return "ok", 200
 
+def get_message():
+	return "Hi"
 
 def log(message):
 	print(message)
