@@ -44,7 +44,7 @@ def webhook():
 						response = Hau()
 						bot.send_text_message(sender_id, response)
 					elif messaging_text == "Yes" or "Yep" or "Sure":
-						response = send_site()
+						response = Info()
 						bot.send_text_message(sender_id, response)
 					elif messaging_text == "No" or "Not" or "Nope":
 						response = no()
