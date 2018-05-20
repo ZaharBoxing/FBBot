@@ -37,36 +37,37 @@ def webhook():
 						messaging_text = 'no text'
 						
 
-					if messaging_text == "Hi":
+					if messaging_text == "Hi" or "Hello" or "Good morning":
 						response = get_message()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "How are u?":
+					elif messaging_text == "Fine" or "Nice" or "Bad" or "Normal" or "Perfect":
 						response = Hau()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Send me ur site":
+					elif messaging_text == "Yes" or "Yep" or "Sure":
 						response = send_site()
-						bot.send_generic_message(sender_id, response)
+						bot.send_text_message(sender_id, response)
+					elif messaging_text = "No" or "Not" or "Nope":
+						response = no()
+						bot.send_text_message(sender_id, response)
 					else:
 						response = dont()
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
-def send_site():
-	buttons': [{
+	
+def no():
+	return "Ok,see u soon"
 
-								'type': 'web_url',
-
-								'title': "Read more",
-
-								'url': ['isport.ua']
-
-	}]
+def Info():
+	print("Site: isport.ua")
+	print("Email: supra11@ukr.net")
+	print("Contact number:095-838-16-26")
 
 def Hau():
-	return "Nice, u?"
+	return "Too,u need some information about company?"
 
 def get_message():
-	return "Hello"
+	return "Hello,how are u?"
 
 def dont():
 	return "Dont understand"
