@@ -45,14 +45,22 @@ def webhook():
 						bot.send_text_message(sender_id, response)
 					elif messaging_text == "Send me ur site":
 						response = send_site()
-						bot.send_text_message(sender_id, response)
+						bot.send_generic_message(sender_id, response)
 					else:
 						response = dont()
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 def send_site():
-	return url("isport.ua")
+	buttons': [{
+
+								'type': 'web_url',
+
+								'title': "Read more",
+
+								'url': ['isport.ua']
+
+	}]
 
 def Hau():
 	return "Nice, u?"
