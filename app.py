@@ -43,7 +43,7 @@ def webhook():
 
 	return "ok", 200
 
-client.send_buttons(recipient_id, "你可以透過下列方式找到我", [
+bot.send_buttons(recipient_id, "你可以透過下列方式找到我", [
     ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),
 	ActionButton(ButtonType.POSTBACK, "Email", Intent.EMAIL)
 ])
