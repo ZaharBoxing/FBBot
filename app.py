@@ -52,7 +52,7 @@ def webhook():
 
 	return "ok", 200
 def send_site():
-	return "isport.ua"
+	return url("isport.ua")
 
 def Hau():
 	return "Nice, u?"
