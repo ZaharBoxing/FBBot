@@ -37,16 +37,16 @@ def webhook():
 						messaging_text = 'no text'
 						
 
-					if messaging_text == "Hi" or "Hello" or "Good morning":
+					if messaging_text == "Hi" and "Hello" and "Good morning":
 						response = get_message()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Fine" or "Nice" or "Bad" or "Normal" or "Perfect":
+					elif messaging_text == "Fine" and "Nice" and "Bad" and "Normal" and "Perfect":
 						response = Hau()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Yes" or "Yep" or "Sure":
+					elif messaging_text == "Yes" and "Yep" and "Sure":
 						response = Info()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "No" or "Not" or "Nope":
+					elif messaging_text == "No" and "Not" and "Nope":
 						response = no()
 						bot.send_text_message(sender_id, response)
 					else:
