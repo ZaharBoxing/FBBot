@@ -37,8 +37,8 @@ def webhook():
 						bot.send_text_message(sender_id, response)
 					else:
 						messaging_text = 'no text'
-						response = button()
-						bot.send_generic_message(sender_id, response)
+						response = get_no_text
+						bot.send_text_message(sender_id, response)
 
 
 	return "ok", 200
@@ -48,14 +48,6 @@ def get_message():
 
 def get_no_text():
 	return "Nice picture"
-
-def button():
-	{
-		'type': 'web_url',
-		'title': "Click here"
-		'url':['https://proglib.io/']
-	}
-
 
 def log(message):
 	print(message)
