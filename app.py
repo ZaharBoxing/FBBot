@@ -31,19 +31,18 @@ def webhook():
 				recipient_id = messaging_event['recipient']['id']
 
 				if messaging_event.get('message'):
-					if 'text' in messaging_event['Hi']:
-						messaging_text = 'Hi'
+					if 'text' in messaging_event['message'] == "Hi":
+						messaging_text = messaging_event['message']['text']
 						response = get_message()
 						bot.send_text_message(sender_id, response)
-					elif 'text' in messaging_event['How are u?']:
-						messaging_text = "How are u?"
+					elif 'text' in messaging_event['message'] == "How are u?":
+						messaging_text = messaging_event['message']['text']
 						response = Hau()
 						bot.send_text_message(sender_id, response)
 					else:
 						messaging_text = 'no text'
 						response = get_no_text()
 						bot.send_text_message(sender_id, response)
-
 
 	return "ok", 200
 
