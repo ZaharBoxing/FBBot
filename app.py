@@ -47,7 +47,9 @@ def webhook():
 
 	return "ok", 200
 
-
+def Hau():
+	return "Nice, u?"
+	
 def get_message():
 	return "Hello"
 
