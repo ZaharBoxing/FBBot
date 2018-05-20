@@ -37,25 +37,30 @@ def webhook():
 						messaging_text = 'no text'
 						
 
-					if messaging_text == "Hi" and "Hello" and "Good morning":
+					if messaging_text == "Hi":
 						response = get_message()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Fine" and "Nice" and "Bad" and "Normal" and "Perfect":
+					elif messaging_text == "Fine":
 						response = Hau()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Yes" and "Yep" and "Sure":
+					elif messaging_text == "Yes":
 						response = Info()
+						goodbye = Bye()
 						bot.send_text_message(sender_id, response)
-					elif messaging_text == "No" and "Not" and "Nope":
-						response = no()
+						bot.send_text_message(sender_id, goodbye)
+					elif messaging_text == "No":
+						response = No()
 						bot.send_text_message(sender_id, response)
 					else:
-						response = dont()
+						response = Dont()
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
-def no():
+def Bye():
+	return "Thx for ur visit, goodbye"
+
+def No():
 	return "Ok,see u soon"
 
 def Info():
@@ -67,7 +72,7 @@ def Hau():
 def get_message():
 	return "Hello,how are u?"
 
-def dont():
+def Dont():
 	return "Dont understand"
 
 def log(message):
