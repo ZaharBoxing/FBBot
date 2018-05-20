@@ -32,8 +32,12 @@ def webhook():
 
 				if messaging_event.get('message'):
 					if 'text' in messaging_event['message']:
-						messaging_text = messaging_event['message']['text']
+						messaging_text = 'Hi'
 						response = get_message()
+						bot.send_text_message(sender_id, response)
+					elif 'text' in messaging_event['message']:
+						messaging_text = "How are u?"
+						response = Hau()
 						bot.send_text_message(sender_id, response)
 					else:
 						messaging_text = 'no text'
@@ -45,7 +49,7 @@ def webhook():
 
 
 def get_message():
-	return "Hi"
+	return "Hello"
 
 def get_no_text():
 	return "Nice picture"
