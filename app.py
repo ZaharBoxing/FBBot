@@ -36,8 +36,6 @@ def webhook():
 					else:
 						messaging_text = 'no text'
 						
-					response = "Let's start"
-					bot.send_text_message(sender_id, response)
 
 					if messaging_text == "Hi":
 						response = get_message()
@@ -45,11 +43,16 @@ def webhook():
 					elif messaging_text == "How are u?":
 						response = Hau()
 						bot.send_text_message(sender_id, response)
+					elif messaging_text == "Send me ur site":
+						response = send_site()
+						bot.send_text_message(sender_id, response)
 					else:
 						response = dont()
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
+def send_site():
+	return "isport.ua"
 
 def Hau():
 	return "Nice, u?"
