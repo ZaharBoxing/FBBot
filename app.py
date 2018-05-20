@@ -40,8 +40,8 @@ def webhook():
 						response = get_no_text()
 						bot.send_text_message(sender_id, response)
 
-						elements = button()
-						bot.send_generic_message(sender_id, elements)
+				response = button()
+				bot.send_generic_message(sender_id, response)
 
 	return "ok", 200
 
@@ -52,20 +52,12 @@ def get_no_text():
 	return "Nice picture"
 
 def button():
-	elements = []
-	element = {
-						'title': ['title']
-						'buttons': [{
-											'type': 'web_url',
-											'title': "Click here"
-											'url':['ispot.ua']
-						}]
-
-
+	{
+		'type': 'web_url',
+		'title': "Click here"
+		'url':['https://proglib.io/']
 	}
-	elements.append(element)
 
-	return elements
 
 def log(message):
 	print(message)
