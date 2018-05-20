@@ -59,9 +59,7 @@ def no():
 	return "Ok,see u soon"
 
 def Info():
-	print("Site: isport.ua")
-	print("Email: supra11@ukr.net")
-	print("Contact number:095-838-16-26")
+	return "Site: isport.ua, Email: supra11@ukr.net, Contact number:095-838-16-26"
 
 def Hau():
 	return "Too,u need some information about company?"
