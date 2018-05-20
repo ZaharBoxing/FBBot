@@ -40,8 +40,16 @@ def webhook():
 						response = get_no_text()
 						bot.send_text_message(sender_id, response)
 
-					bot.send_generic_message(sender_id, "你可以透過下列方式找到我", [
-    					ActionButton(ButtonType.WEB_URL, "Blog", "http://blog.enginebai.com"),
+					bot.send_generic_message(sender_id, "isport", [
+    					'buttons': [{
+
+								'type': 'web_url',
+
+								'title': "Read more",
+
+								'url': 'isport.ua'
+
+					}]
 					])
 
 
