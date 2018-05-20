@@ -40,18 +40,6 @@ def webhook():
 						response = get_no_text()
 						bot.send_text_message(sender_id, response)
 
-					bot.send_generic_message(sender_id, "isport", [
-    					'buttons': [{
-
-								'type': 'web_url',
-
-								'title': "Read more",
-
-								'url': 'isport.ua'
-
-					}]
-					])
-
 
 	return "ok", 200
 
