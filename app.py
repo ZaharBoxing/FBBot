@@ -83,8 +83,8 @@ class Buttons(object):
                         type = item.get('type')
                         title = item.get('title')
                         value = item.get('value', item.get('url', item.get('payload')))
-                        if type == 'web_url':
-                            result.append(ButtonWeb(title=title, url=value)
+                        type == 'web_url':
+                        result.append(ButtonWeb(title=title, url=value)
                     else:
                         raise ValueError('Invalid button type')
                 else:
@@ -109,7 +109,7 @@ def No():
 	return "Ok,see u soon"
 
 def Info():
-	return "Site: isport.ua, Email: supra11@ukr.net, Contact number:095-838-16-26"
+	return "Site: isport.ua, Email: supra11@ukr.net, Contact number: 095-838-16-26"
 
 def Hau():
 	return "Too,u need some information about company?"
