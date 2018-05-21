@@ -51,11 +51,29 @@ def webhook():
 					elif messaging_text == "No":
 						response = No()
 						bot.send_text_message(sender_id, response)
+					elif messaging_text == "Send me link":
+						response = ButtonWeb()
+						bot.send_generic_message(sender_id, response)
 					else:
 						response = Dont()
 						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
+
+
+class BaseButton(object):
+
+    pass
+
+class ButtonWeb(BaseButton):
+
+    def __init__(self, title, url):
+
+        self.type = 'web_url'
+
+        self.title = "Link"
+
+        self.url = "isport.ua/"
 
 def Bye():
 	return "Thx for ur visit, goodbye"
