@@ -35,6 +35,7 @@ def webhook():
 						messaging_text = messaging_event['message']['text']
 					else:
 						messaging_text = 'no text'
+						bot.send_text_message(sender_id, "Nice pic")
 						
 
 					if messaging_text == "Hi":
@@ -52,7 +53,7 @@ def webhook():
 						response = No()
 						bot.send_text_message(sender_id, response)
 					elif messaging_text == "Send me link":
-						response = ButtonWeb()
+						response = result
 						bot.send_generic_message(sender_id, response)
 					else:
 						response = Dont()
@@ -60,20 +61,46 @@ def webhook():
 
 	return "ok", 200
 
+class Buttons(object):
+    def __init__(self, text, buttons):
+        self.type = 'template'
+        self.payload = {
+            'template_type': 'button',
+            'text': text,
+            'buttons': Buttons.convert_shortcut_buttons(buttons)
+        }
+
+    @staticmethod
+
+    def convert_shortcut_buttons(items):
+        if items is not None and isinstance(items, list):
+            result = []
+            for item in items:
+                if isinstance(item, BaseButton):
+                    result.append(item)
+                elif isinstance(item, dict):
+                    if item.get('type') in ['web_url', 'postback', 'phone_number', 'element_share']:
+                        type = item.get('type')
+                        title = item.get('title')
+                        value = item.get('value', item.get('url', item.get('payload')))
+                        if type == 'web_url':
+                            result.append(ButtonWeb(title=title, url=value)
+                    else:
+                        raise ValueError('Invalid button type')
+                else:
+                    raise ValueError('Invalid buttons variables')
+            return result
+        else:
+            return items
 
 class BaseButton(object):
-
     pass
 
 class ButtonWeb(BaseButton):
-
     def __init__(self, title, url):
-
         self.type = 'web_url'
-
-        self.title = "Link"
-
-        self.url = "isport.ua/"
+        self.title = "Site"
+        self.url = "isport.ua"
 
 def Bye():
 	return "Thx for ur visit, goodbye"
