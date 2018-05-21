@@ -35,90 +35,25 @@ def webhook():
 						messaging_text = messaging_event['message']['text']
 					else:
 						messaging_text = 'no text'
-						bot.send_text_message(sender_id, "Nice pic")
-						
 
-					if messaging_text == "Hi":
-						response = get_message()
-						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Fine":
-						response = Hau()
-						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Yes":
-						response = Info()
-						goodbye = Bye()
-						bot.send_text_message(sender_id, response)
-						bot.send_text_message(sender_id, goodbye)
-					elif messaging_text == "No":
-						response = No()
-						bot.send_text_message(sender_id, response)
-					elif messaging_text == "Send me link":
-						response = result
-						bot.send_generic_message(sender_id, response)
-					else:
-						response = Dont()
-						bot.send_text_message(sender_id, response)
+					response = None
+
+					entity, value = wit_response(messaging_text)
+					if entity == 'wit_greetings':
+						response = "Hi, how are u?"
+					elif entity == 'wit_mood':
+						response = "I am too, do u want some info about company?"
+					elif entity == 'wit_consent':
+						response = "Site: isport.ua, e-mail: supra11@ukr.net, number: 095-838-16-26. Have a nice day!"
+					elif entity == 'wit_negation':
+						response = "Okey, see u next time. Good bye!"
+
+					if response == None:
+						response = "Sry, but i dont understand"
+
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
-
-class Buttons(object):
-    def __init__(self, text, buttons):
-        self.type = 'template'
-        self.payload = {
-            'template_type': 'button',
-            'text': text,
-            'buttons': Buttons.convert_shortcut_buttons(buttons)
-        }
-
-    @staticmethod
-
-    def convert_shortcut_buttons(items):
-        if items is not None and isinstance(items, list):
-            result = []
-            for item in items:
-                if isinstance(item, BaseButton):
-                    result.append(item)
-                elif isinstance(item, dict):
-                    if item.get('type') in ['web_url', 'postback', 'phone_number', 'element_share']:
-                        type = item.get('type')
-                        title = item.get('title')
-                        value = item.get('value', item.get('url', item.get('payload')))
-                        type == 'web_url':
-                        result.append(ButtonWeb(title=title, url=value)
-                    else:
-                        raise ValueError('Invalid button type')
-                else:
-                    raise ValueError('Invalid buttons variables')
-            return result
-        else:
-            return items
-
-class BaseButton(object):
-    pass
-
-class ButtonWeb(BaseButton):
-    def __init__(self, title, url):
-        self.type = 'web_url'
-        self.title = "Site"
-        self.url = "isport.ua"
-
-def Bye():
-	return "Thx for ur visit, goodbye"
-
-def No():
-	return "Ok,see u soon"
-
-def Info():
-	return "Site: isport.ua, Email: supra11@ukr.net, Contact number: 095-838-16-26"
-
-def Hau():
-	return "Too,u need some information about company?"
-
-def get_message():
-	return "Hello,how are u?"
-
-def Dont():
-	return "Dont understand"
 
 def log(message):
 	print(message)
