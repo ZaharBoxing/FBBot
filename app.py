@@ -46,8 +46,7 @@ def webhook():
 					elif entity == 'wit_mood':
 						response = "I am too, do u want some info about company?"
 					elif entity == 'wit_confirmation':
-						#response = "Site: 'http://isport.ua/'"
-						response = bot.send_button_message(recipient_id, text, buttons)
+						response = bot.send_button_message(sender_id, text, buttons)
 					elif entity == 'wit_negation':
 						response = "Okey, see u next time. Good bye!"
 
