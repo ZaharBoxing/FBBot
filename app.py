@@ -61,15 +61,12 @@ def log(message):
 	print(message)
 	sys.stdout.flush()
 
-def buttons_send():
 
-	global buttons
+buttons = []
 
-	buttons = []
+button = Button(title='Site', type='web_url', url='http://isport.ua/')
 
-	button = Button(title='Site', type='web_url', url='http://isport.ua/')
-
-	buttons.append(button)
+buttons.append(button)
 
 
 if __name__ == "__main__":
