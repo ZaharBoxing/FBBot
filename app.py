@@ -69,7 +69,7 @@ def buttons_send():
 
 	buttons.append(button)
 
-	bot.send_button_message(recipient_id, buttons)
+	result = bot.send_button_message(recipient_id, buttons)
 
 
 if __name__ == "__main__":
