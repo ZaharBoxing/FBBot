@@ -45,8 +45,8 @@ def webhook():
 					elif entity == 'wit_mood':
 						response = "I am too, do u want some info about company?"
 					elif entity == 'wit_consent':
-						response = "Site: 'http://isport.ua/', e-mail: supra11@ukr.net, number: 095-838-16-26. Have a nice day!"
-						bot.send_generic_message(sender_id, buttons())
+						#response = "Site: 'http://isport.ua/', e-mail: supra11@ukr.net, number: 095-838-16-26. Have a nice day!"
+						response = bot.send_button_message(recipient_id, text, buttons)
 					elif entity == 'wit_negation':
 						response = "Okey, see u next time. Good bye!"
 
@@ -61,17 +61,13 @@ def log(message):
 	print(message)
 	sys.stdout.flush()
 
-def buttons():
-	{
-			'buttons': [{
+buttons = []
 
-							'type': 'web_url',
+button = Button(title='Site', type='web_url', url='http://isport.ua/')
 
-							'title': "Site",
+buttons.append(button)
 
-							'url': 'http://isport.ua/'
+text = 'Select'
 
-					}],
-					}
 if __name__ == "__main__":
 	app.run(debug = True, port = 80)
