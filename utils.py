@@ -1,6 +1,6 @@
 from wit import Wit
 
-access_token = "IMAZ45B56AGCOF2ZDIT7GC7PXWRQ3H55"
+access_token = "your_access_token"
 
 client = Wit(access_token = access_token)
 

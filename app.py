@@ -6,7 +6,7 @@ from pymessenger import Button
 
 app = Flask(__name__)
 
-PAGE_ACCESS_TOKEN = "EAAdceYcByOEBAKlRwgRmtrDwNkwOjNxr7Em8TvwOXZBdTNeQZBW7IK9JdwDrYu6sK2cexKZC8aC5NUXgqo6md6BzTC1BAtVZAxNXq4zrAIGuB2GB6AZCOswKbBmlW4vpw9JZAmB279miujxRA9uqKw2qHmAmsdmUnbgZADZBBOpiW6ChAdZBJo4nB"
+PAGE_ACCESS_TOKEN = "YOUR_PAGE_ACCESS_TOKEN"
 
 bot = Bot(PAGE_ACCESS_TOKEN)
 
@@ -63,7 +63,7 @@ def log(message):
 
 
 buttons = []
-button = Button(title='Site', type='web_url', url='http://isport.ua/')
+button = Button(title='Site', type='web_url', url='your site')
 buttons.append(button)
 text = "Click here"
 
